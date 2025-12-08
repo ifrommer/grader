@@ -6,5 +6,12 @@ Created on Mon Dec  8 14:09:28 2025
 """
 
 class Restaurant:
+    # intentional broken
     def __init__(self, name, cuisine):
         raise ValueError("Constructor failed!")
+        
+
+    # correct
+    def get_name(self):
+        print('inside bad_init''s get_name')
+        return self._name        

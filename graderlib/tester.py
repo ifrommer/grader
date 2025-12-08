@@ -26,15 +26,29 @@ def safe_construct(module, cls, *args, fallback=None, **kwargs):
         return False, fallback, f"Student constructor raised an exception: {e}"
     
     
-def test_method(obj, method_name, reference_value = None, *args, **kwargs):
+def test_method(student_cls, obj, method_name, reference_value = None, 
+                *args, **kwargs):
     """ Safely call a method and compare with an expected reference value.
-    Returns (True/False, result or exception) """
-    note = '~~~ test_method note not done yet'
+    Returns (True/False, result or exception, note (str)) 
+    """
+    if not hasattr(student_cls, method_name):
+       return False, None, f"Method {method_name} not found"
+    fn = getattr(student_cls, method_name)
     try:
-        method = getattr(obj, method_name)
-        result = method(*args, **kwargs)
-        success = (result == reference_value)
-        return success, result, note
+        result = fn(obj, *args, **kwargs)
     except Exception as e:
-        return False, e, note
+        return False, None, f"Error calling {method_name}: {e}"
+    
+    # no-return-value expected
+    if reference_value is None:
+        if result is None:
+            return True, None, ""
+        else:
+            return False, result, f"Should not return a value but returned {result}"
+
+    # compare return value
+    if result == reference_value:
+        return True, result, ""
+    else:
+        return False, result, f"Expected {reference_value}, got {result}"
     

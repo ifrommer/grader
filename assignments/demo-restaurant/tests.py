@@ -32,8 +32,9 @@ def test_init(module):
     pts = POINTS["init"] if ok else POINTS["init_fallback"]
     return pts, obj, notes
 
-def test_get_name(obj):
-    ok, result, note = test_method(obj, "get_name", reference_value = "Alice")
+def test_get_name(student_cls, obj):
+    ok, result, note = test_method(student_cls, obj, "get_name", 
+                                   reference_value = "Alice")
     pts = POINTS["get_name"] if ok else 0
     return pts, result, note
 
