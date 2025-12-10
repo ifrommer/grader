@@ -10,7 +10,7 @@ import sys, os
 sys.path.append(os.path.abspath
                 (os.path.join(os.path.dirname(__file__), "../../")))
 from graderlib.tester import safe_construct, test_method
-from reference import Restaurant as RefRestaurant
+from reference import Member as RefMember
 
 POINTS = {
     "init": 10,
@@ -18,11 +18,11 @@ POINTS = {
     "get_name": 5,
     }
 
-def get_student_class(module, class_name = "Restaurant"):
+def get_student_class(module, class_name = "Member"):
     """ Try to extract student's Class. 
     Args:
         module (module): student's module
-        class_name (str, optional): Defaults to "Restaurant".
+        class_name (str, optional): Defaults to "Member".
     Returns:
         result (object or None): object if Class is there, otherwise None
         note (str): message about what happened    """
@@ -43,12 +43,12 @@ def test_init(module):
         points (int)
         object (student object instance or fallback object instance)
     """
-    ok, obj, notes = safe_construct(module, "Restaurant", "Alice", "Italian",
-                               fallback = RefRestaurant("Alice","Italian"))
+    ok, obj, notes = safe_construct(module, "Member", "Alice", [0,0,1],
+                               fallback = RefMember("Alice",[0,0,1]))
     pts = POINTS["init"] if ok else POINTS["init_fallback"]
     return pts, obj, notes
 
-def test_get_name(student_cls, obj, reference_value = "Alice"):
+def test_get_name(student_cls, obj):
     """
     Args:
         student_cls (class): the student's Class
@@ -59,7 +59,7 @@ def test_get_name(student_cls, obj, reference_value = "Alice"):
         note (string): note about what happened in the test
     """    
     ok, result, note = test_method(student_cls, obj, "get_name", 
-                                   reference_value)
+                                   reference_value = "Alice")
     pts = POINTS["get_name"] if ok else 0
     return pts, result, note
 
@@ -80,7 +80,7 @@ def grade_student(module):
     total += pts
     all_notes.append(note)
     
-    student_cls = getattr(module, 'Restaurant')
+    student_cls = getattr(module, 'Member')
     
     pts, student_name, note = test_get_name(student_cls, student_obj)
     print(student_name)

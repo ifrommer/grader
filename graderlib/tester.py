@@ -14,6 +14,7 @@ def safe_construct(module, cls, *args, fallback=None, **kwargs):
     # Fallback object if student __init__ fails
     fallback_obj = RefRestaurant("Alice", "Italian")
     """
+    # I think this is now superseded by get_student_class
     try:  # 1st see if they have the correct class name
         cls_to_test = getattr(module, cls)
     except AttributeError:
@@ -28,8 +29,18 @@ def safe_construct(module, cls, *args, fallback=None, **kwargs):
     
 def test_method(student_cls, obj, method_name, reference_value = None, 
                 *args, **kwargs):
-    """ Safely call a method and compare with an expected reference value.
-    Returns (True/False, result or exception, note (str)) 
+    """  Safely call a method and compare with an expected reference value.   
+    Args:
+        student_cls (class): student's Class
+        obj (object): student's instance or else fallback instance
+        method_name (str): 
+        reference_value (varies, optional): varies. Defaults to None.
+        *args ( ): of the method beign called, varies
+        **kwargs ( ): of the method beign called, varies
+    Returns:
+        bool: whether test succeeded or not
+        TYPE: a return value from the method, may be None
+        str: a description of what happened
     """
     if not hasattr(student_cls, method_name):
        return False, None, f"Method {method_name} not found"

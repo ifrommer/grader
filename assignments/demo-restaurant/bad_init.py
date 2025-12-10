@@ -13,5 +13,4 @@ class Restaurant:
 
     # correct
     def get_name(self):
-        print('inside bad_init''s get_name')
         return self._name        

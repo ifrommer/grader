@@ -1,0 +1,33 @@
+=== NEW RUN: previous contents overwritten ===
+
+************************************************** 
+ <class 'reference.Member'> 
+
+Megan has these privileges:
+   
+Jordan has these privileges:
+lead  attend 
+************************************************** 
+ <class 'lt_is_broke.Member'> 
+
+Megan has these privileges:
+   
+Jordan has these privileges:
+lead  attend 
+************************************************** 
+ <class 'reversed_ratings.Member'> 
+
+Megan has these privileges:
+   
+Jordan has these privileges:
+lead  attend 
+************************************************** 
+ <class 'bad_addpriv.Member'> 
+
+<bad_addpriv.Member object at 0x0000016689A24D10>
+<bad_addpriv.Member object at 0x00000166896B2650>
+************************************************** 
+ <class 'bad_var.Member'> 
+
+<bad_var.Member object at 0x0000016689A24D10>
+<bad_var.Member object at 0x00000166896B2250>
