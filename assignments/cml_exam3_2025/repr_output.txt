@@ -1,33 +1,103 @@
 === NEW RUN: previous contents overwritten ===
 
 ************************************************** 
- <class 'reference.Member'> 
+ <class 'alazawihassan_864_275713_member.Member'> 
+
+Megan has these privileges: 
+Jordan has these privileges: lead attend 
+************************************************** 
+ <class 'bartelsreginald_LATE_890_275835_member.Member'> 
+
+test_repr failed for <class 'bartelsreginald_LATE_890_275835_member.Member'>
+************************************************** 
+ <class 'brownsertonius_1003_275666_member.Member'> 
 
 Megan has these privileges:
-   
+
 Jordan has these privileges:
-lead  attend 
+attend lead
 ************************************************** 
- <class 'lt_is_broke.Member'> 
+ <class 'changagatha_1224_275787_member.Member'> 
+
+Megan has these privileges: 
+
+Jordan has these privileges: 
+Lead Attend 
+************************************************** 
+ <class 'dabbondanzaaiden_LATE_1357_275828_Exam_3.Member'> 
 
 Megan has these privileges:
-   
+
 Jordan has these privileges:
-lead  attend 
+attend lead
 ************************************************** 
- <class 'reversed_ratings.Member'> 
+ <class 'dunnshaley_2519_275667_member.Member'> 
 
 Megan has these privileges:
-   
+
 Jordan has these privileges:
-lead  attend 
+attend lead
 ************************************************** 
- <class 'bad_addpriv.Member'> 
+ <class 'elmendorfdevon_1274_275823_member.Member'> 
 
-<bad_addpriv.Member object at 0x0000016689A24D10>
-<bad_addpriv.Member object at 0x00000166896B2650>
+Megan has these privileges:
+ []
+Jordan has these privileges:
+ []
 ************************************************** 
- <class 'bad_var.Member'> 
+ <class 'fugogstasia_1200_275701_member.Member'> 
 
-<bad_var.Member object at 0x0000016689A24D10>
-<bad_var.Member object at 0x00000166896B2250>
+Megan has these privileges:
+
+Jordan has these privileges:
+
+************************************************** 
+ <class 'funezguzmansamuel_LATE_1204_275829_member.Member'> 
+
+Megan has these privileges:
+
+Jordan has these privileges:
+lead attend
+************************************************** 
+ <class 'garciaarianna_1060_275668_member.Member'> 
+
+☆Megan☆ has these privileges:
+
+☆Jordan☆ has these privileges:
+lead attend
+************************************************** 
+ <class 'herndonjay_LATE_849_275830_member.Member'> 
+
+test_repr failed for <class 'herndonjay_LATE_849_275830_member.Member'>
+************************************************** 
+ <class 'HOffman_Member.Member'> 
+
+Megan has these privileges: 
+ []
+Jordan has these privileges: 
+ ['attend', 'lead']
+************************************************** 
+ <class 'howryalyssa_747_275703_member.Member'> 
+
+Megan has these privledges:[]
+Jordan has these privledges:['lead', 'vote']
+************************************************** 
+ <class 'kvadusolivia_1138_275807_member.Member'> 
+
+Megan has these privileges: 
+  
+
+Jordan has these privileges: 
+attend  lead
+
+************************************************** 
+ <class 'mcgowenzachary_875_275797_member.Member'> 
+
+Megan has these privileges:
+
+Jordan has these privileges:
+lead attend
+************************************************** 
+ <class 'turnermatthew_1145_275727_member.Member'> 
+
+test_repr failed for <class 'turnermatthew_1145_275727_member.Member'>
