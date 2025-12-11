@@ -121,11 +121,11 @@ def test_get_name(student_cls, obj, reference_value):
 
 def test_add_priv(student_cls, p0, p2):
     # note add_priv has no return value, hence the _ a few lines down
-    pts = 0;  i=0
+    pts = 0;  i=0; note = "3: add_priv "
     passed_all = True; extra_info = ''
     for p in [p0, p2]:
         for priv in privs:
-            ok, _, note = test_method(student_cls, p, 'add_priv', None, priv) 
+            ok, _, msg = test_method(student_cls, p, 'add_priv', None, priv) 
             if ok: 
                 try:
                     assert p._privileges == priv_data[i]
@@ -133,9 +133,11 @@ def test_add_priv(student_cls, p0, p2):
                 except:
                     passed_all = False
                     extra_info += f' {i} {priv_data[i]}'
-            else: passed_all = False
+            else: 
+                passed_all = False
+                note += msg
             i += 1
-    note = "3: add_priv" + passed_all * " PASSED" 
+    note += passed_all * " PASSED" 
     note += (1-passed_all) * " had at least one failure" + extra_info
     return ok, note, pts
 
@@ -217,9 +219,16 @@ def test_repr(cls, member_data, out_file):
 #############
 # STARTS HERE 
 import importlib
-test_files = ["reference","lt_is_broke","reversed_ratings","bad_addpriv",
-              "bad_var","bad_init","really_bad_init"] 
 # replace this with the student modules
+#test_files = ["reference","lt_is_broke","reversed_ratings","bad_addpriv",
+#              "bad_var","bad_init","really_bad_init"] 
+
+
+import pathlib
+base = pathlib.Path(__file__).parent       # exam3 directory
+student_dir = base / "e3_2025_stu_work"
+sys.path.insert(0, str(student_dir))
+
 
 def grade_student():
     all_notes = {}
@@ -227,7 +236,10 @@ def grade_student():
     with open(out_file, "w") as f:
         f.write("=== NEW RUN: previous contents overwritten ===\n\n")
     
-    for file in test_files:
+    # for file in ['howryalyssa_747_275703_member']: #test_files:
+    for pyfile in student_dir.glob("*.py"):
+        print("Loading:", pyfile.name)
+        file = pyfile.stem  #pyfile.name.split('.')[0]
         cur_notes = []
         student_module = importlib.import_module(file)
         # Check if the Class is proplery named, if so get it
@@ -275,10 +287,17 @@ all_notes = grade_student()
 print(all_notes)
 
 
-
+#%%
 # Print scores
+scores = dict()
 for k in all_notes:
-    print(k,sum([i[0] for i in all_notes[k]]))
+    name = k.split('_')[0]
+    total = sum([i[0] for i in all_notes[k]])
+    scores[name] = total
+    # print(f'{name:20s}:  {total:>4.2f}')
+#print(scores)
+import pandas as pd
+series = pd.Series(scores)
 
 
 
