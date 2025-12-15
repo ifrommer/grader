@@ -1,14 +1,7 @@
 # grader
 Grade student Python code
 
-# notes
-Add a `config.py` file to hold:
-- standard constructor arguments
-- method test arguments
-- expected outputs
-- class names
-- point values  
-etc.   
+See **Issues**
 
 See gpt for more info
 
